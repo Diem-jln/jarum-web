@@ -3,28 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="JARUM - Jardineros Unidos de Moravia. Corporación ambiental comunitaria dedicada al paisajismo, producción de material vegetal, ecoturismo y educación ambiental en Medellín." />
-  <title>JARUM | Jardineros Unidos de Moravia · Sembrando para el Futuro</title>
+  <title>JARUM · Sembrando para el Futuro | Ecosistema Moravia</title>
 
   <!-- Tipografía oficial Andika -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <style>
-    /* VARIABLES INSTITUCIONALES JARUM */
     :root {
       --negro-carbon: #222121;
       --terracota: #953E28;
       --verde-hoja: #256244;
       --verde-bosque: #1B372B;
       --blanco: #FFFFFF;
-      --fondo-gris: #F7F9F7;
-      --borde-suave: #E2E7E2;
-      --sombra-card: 0 10px 25px rgba(34, 33, 33, 0.08);
-      --sombra-hover: 0 16px 36px rgba(34, 33, 33, 0.14);
-      --radio-borde: 8px;
-      --transicion: all 0.25s ease-in-out;
+      --fondo-suave: #F8FAF8;
+      --fondo-tarjeta: #F1F5F2;
+      --borde: #E2E8E2;
+      --sombra-suave: 0 10px 25px rgba(27, 55, 43, 0.07);
+      --sombra-flotante: 0 18px 38px rgba(27, 55, 43, 0.14);
+      --radio: 14px;
+      --curva: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -41,864 +40,1210 @@
       font-family: 'Andika', sans-serif;
       background-color: var(--blanco);
       color: var(--negro-carbon);
-      line-height: 1.68;
+      line-height: 1.65;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     img, video {
-      display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     a {
       text-decoration: none;
       color: inherit;
-      transition: var(--transicion);
     }
 
     .container {
       width: 90%;
-      max-width: 1220px;
+      max-width: 1180px;
       margin: 0 auto;
     }
 
-    /* TOP BANNER */
-    .top-bar {
-      background-color: var(--verde-bosque);
-      color: #E2EAE3;
-      font-size: 0.84rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .top-bar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    /* BARRA DE NAVEGACIÓN */
+    /* BARRA SUPERIOR */
     header {
-      background-color: var(--blanco);
-      border-bottom: 2px solid var(--borde-suave);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--borde);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      z-index: 100;
     }
 
-    .nav-wrapper {
+    .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
+      padding: 0.85rem 0;
     }
 
-    .brand-group {
+    .brand-link {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      transition: transform 0.25s var(--curva);
     }
 
-    .brand-logo {
-      font-size: 1.8rem;
-      font-weight: 700;
+    .brand-link:hover {
+      transform: scale(1.02);
+    }
+
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      font-size: 1.35rem;
       color: var(--verde-bosque);
-      letter-spacing: -0.5px;
       line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
-    .brand-tagline {
-      font-size: 0.8rem;
+    .brand-text span {
+      font-size: 0.75rem;
       color: var(--terracota);
       font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: 1.2px;
-      margin-top: 0.25rem;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.2rem;
     }
 
-    nav ul {
+    .nav-direct-contact {
       display: flex;
-      list-style: none;
-      gap: 1.8rem;
+      gap: 1rem;
       align-items: center;
     }
 
-    nav a {
+    .btn-contact-top {
+      font-size: 0.85rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--negro-carbon);
-      position: relative;
-      padding-bottom: 0.2rem;
+      color: var(--verde-hoja);
+      background: rgba(37, 98, 68, 0.08);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 98, 68, 0.2);
+      transition: all 0.25s var(--curva);
     }
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: var(--terracota);
-      transition: var(--transicion);
-    }
-
-    nav a:hover {
-      color: var(--terracota);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      background-color: var(--terracota);
-      color: var(--blanco) !important;
-      padding: 0.55rem 1.2rem;
-      border-radius: var(--radio-borde);
-    }
-
-    .nav-cta::after {
-      display: none;
-    }
-
-    .nav-cta:hover {
-      background-color: #7b311e;
-      transform: translateY(-2px);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      background: linear-gradient(135deg, #13271F 0%, #1B372B 65%, #256244 100%);
+    .btn-contact-top:hover {
+      background: var(--verde-hoja);
       color: var(--blanco);
-      padding: 5rem 0 4.5rem;
-      overflow: hidden;
     }
 
-    .hero-grid {
+    /* HERO EDITORIAL COMPACTO */
+    .branch-hero {
+      background: linear-gradient(180deg, var(--fondo-suave) 0%, var(--blanco) 100%);
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .branch-hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 3.5rem;
       align-items: center;
     }
 
-    .hero-tag {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #E2EAE3;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(37, 98, 68, 0.1);
+      color: var(--verde-hoja);
+      border: 1px solid rgba(37, 98, 68, 0.2);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
       font-weight: 700;
-      border-radius: 4px;
       margin-bottom: 1.2rem;
-      letter-spacing: 0.5px;
     }
 
-    .hero h1 {
-      font-size: 2.9rem;
-      line-height: 1.15;
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--verde-hoja);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 98, 68, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 98, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 98, 68, 0); }
+    }
+
+    .branch-hero h2 {
+      font-size: 2.8rem;
+      line-height: 1.12;
+      color: var(--verde-bosque);
+      margin-bottom: 1.2rem;
       font-weight: 700;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
     }
 
-    .hero p {
-      font-size: 1.12rem;
-      color: #D3E0D6;
-      margin-bottom: 2rem;
-      max-width: 620px;
+    .branch-hero h2 span {
+      color: var(--terracota);
     }
 
-    .hero-buttons {
+    .branch-hero p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    .hero-stats-quick {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      margin-top: 1.8rem;
       flex-wrap: wrap;
     }
 
-    .btn {
-      font-family: 'Andika', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      padding: 0.85rem 1.8rem;
-      border-radius: var(--radio-borde);
-      cursor: pointer;
-      display: inline-block;
-      border: 2px solid transparent;
-      transition: var(--transicion);
+    .stat-chip {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
-    .btn-primary {
-      background-color: var(--terracota);
-      color: var(--blanco);
-      box-shadow: 0 4px 12px rgba(149, 62, 40, 0.35);
-    }
-
-    .btn-primary:hover {
-      background-color: #7b311e;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      border-color: #E2EAE3;
-      color: #FFFFFF;
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
-    }
-
-    .hero-media-wrapper {
-      position: relative;
-    }
-
-    .hero-media-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-    }
-
-    .hero-media-card img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      transform: scale(1);
-      transition: transform 0.6s ease;
-    }
-
-    .hero-media-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .hero-media-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(34, 33, 33, 0.9) 100%);
-      color: var(--blanco);
-      padding: 1.5rem 1.2rem 1rem;
-      font-size: 0.88rem;
-    }
-
-    /* SECCIONES */
-    .section {
-      padding: 5.5rem 0;
-    }
-
-    .section-alt {
-      background-color: var(--fondo-gris);
-      border-top: 1px solid var(--borde-suave);
-      border-bottom: 1px solid var(--borde-suave);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .section-category {
+    .stat-chip strong {
+      display: block;
       color: var(--terracota);
-      font-size: 0.85rem;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .stat-chip span {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* SECCIÓN LÍNEA DE TIEMPO INTERACTIVA */
+    .timeline-section {
+      padding: 4.5rem 0 3.5rem;
+      background: var(--fondo-suave);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .section-title-wrap {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title-wrap h3 {
+      font-size: 2rem;
+      color: var(--verde-bosque);
+      letter-spacing: -0.5px;
+    }
+
+    .section-title-wrap p {
+      color: #666;
+      font-size: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .timeline-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-btn {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--verde-bosque);
+      cursor: pointer;
+      transition: all 0.25s var(--curva);
+    }
+
+    .timeline-btn:hover,
+    .timeline-btn.active {
+      background: var(--verde-bosque);
+      color: var(--blanco);
+      border-color: var(--verde-bosque);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(27, 55, 43, 0.2);
+    }
+
+    .timeline-display-card {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 2.5rem;
+      box-shadow: var(--sombra-suave);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-info {
+      max-width: 680px;
+    }
+
+    .timeline-info h4 {
+      font-size: 1.45rem;
+      color: var(--terracota);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-info p {
+      font-size: 1.02rem;
+      color: #3f4741;
+      line-height: 1.6;
+    }
+
+    .timeline-metric {
+      text-align: right;
+      min-width: 140px;
+      border-left: 2px solid rgba(149, 62, 40, 0.2);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-metric .num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--verde-bosque);
+      line-height: 1;
+    }
+
+    .timeline-metric .label {
+      font-size: 0.82rem;
+      color: #666;
+    }
+
+    /* SECCIÓN BOTÁNICA */
+    .botanical-section {
+      padding: 4.5rem 0;
+    }
+
+    .botanical-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .botanical-card {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-top: 4px solid var(--verde-hoja);
+      border-radius: var(--radio);
+      padding: 1.8rem;
+      box-shadow: var(--sombra-suave);
+      transition: all 0.3s var(--curva);
+      position: relative;
+    }
+
+    .botanical-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra-flotante);
+      border-top-color: var(--terracota);
+    }
+
+    .botanical-tag {
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
+      color: var(--verde-hoja);
+      margin-bottom: 0.6rem;
       display: block;
+    }
+
+    .botanical-card h4 {
+      font-size: 1.3rem;
+      color: var(--verde-bosque);
       margin-bottom: 0.5rem;
     }
 
-    .section-header h2 {
-      font-size: 2.3rem;
+    .botanical-card p {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    /* BLOQUE DUAL */
+    .dual-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2rem;
+      margin: 4.5rem 0;
+    }
+
+    .showcase-card {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .showcase-img {
+      height: 300px;
+      position: relative;
+    }
+
+    .showcase-info {
+      padding: 1.8rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .showcase-info h4 {
+      font-size: 1.25rem;
       color: var(--verde-bosque);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .showcase-info p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1.2rem;
+    }
+
+    .credit-badge {
+      font-size: 0.8rem;
+      color: var(--terracota);
       font-weight: 700;
+    }
+
+    /* GALERÍA MÓVIL */
+    .slider-section {
+      background: var(--fondo-suave);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 2.8rem;
+      margin-bottom: 4.5rem;
+      box-shadow: var(--sombra-suave);
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .slider-track {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--verde-hoja) transparent;
+      padding-bottom: 1.2rem;
+    }
+
+    .slider-card {
+      flex: 0 0 calc(33.333% - 1rem);
+      scroll-snap-align: start;
+      min-width: 290px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .slider-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .slider-card-img {
+      height: 240px;
+    }
+
+    .slider-card-caption {
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* TRÍPTICO DE FOTOS: DON WILLIAM */
+    .triptych-section {
+      background: var(--verde-bosque);
+      color: var(--blanco);
+      border-radius: var(--radio);
+      padding: 3.5rem;
+      margin-bottom: 4.5rem;
+      border-left: 6px solid var(--terracota);
+      box-shadow: var(--sombra-flotante);
+    }
+
+    .triptych-header {
+      max-width: 840px;
+      margin-bottom: 2.5rem;
+    }
+
+    .triptych-header h3 {
+      font-size: 2rem;
       line-height: 1.2;
       margin-bottom: 0.8rem;
     }
 
-    .section-header p {
-      color: #555;
+    .triptych-header p {
+      color: #D3E0D6;
       font-size: 1.05rem;
-    }
-
-    /* GRID LÍNEAS DE ACCIÓN */
-    .grid-action-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .action-card {
-      background: var(--blanco);
-      border: 1px solid var(--borde-suave);
-      border-radius: var(--radio-borde);
-      border-top: 5px solid var(--verde-hoja);
-      padding: 2.2rem 1.8rem;
-      box-shadow: var(--sombra-card);
-      transition: var(--transicion);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .action-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--sombra-hover);
-      border-top-color: var(--terracota);
-    }
-
-    .action-number {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--verde-hoja);
-      background: rgba(37, 98, 68, 0.1);
-      display: inline-block;
-      width: fit-content;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-
-    .action-card h3 {
-      font-size: 1.35rem;
-      color: var(--verde-bosque);
-      margin-bottom: 0.85rem;
-      font-weight: 700;
-    }
-
-    .action-card p {
-      color: #484848;
-      font-size: 0.96rem;
       line-height: 1.6;
-      flex-grow: 1;
     }
 
-    /* STORYTELLING */
-    .story-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .story-content h2 {
-      font-size: 2.25rem;
-      color: var(--verde-bosque);
-      margin: 0.8rem 0 1.2rem;
-      line-height: 1.2;
-    }
-
-    .story-content p {
-      color: #444;
-      font-size: 1.02rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .story-quote {
-      border-left: 5px solid var(--terracota);
-      background-color: var(--blanco);
-      padding: 1.4rem 1.6rem;
-      margin: 1.8rem 0;
-      border-radius: 0 var(--radio-borde) var(--radio-borde) 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-    }
-
-    .story-quote blockquote {
-      font-size: 1.28rem;
+    .quote-callout {
+      margin: 1.5rem 0;
+      padding-left: 1.2rem;
+      border-left: 3px solid var(--terracota);
       font-style: italic;
-      color: var(--verde-bosque);
-      line-height: 1.45;
-      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #FFF;
     }
 
-    .story-quote cite {
-      font-size: 0.9rem;
-      color: var(--terracota);
+    .triptych-header span {
+      display: block;
+      font-size: 0.85rem;
+      color: #E8AF9E;
       font-weight: 700;
-      font-style: normal;
     }
 
-    .story-mosaic {
+    .triptych-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
     }
 
-    .mosaic-card {
-      border-radius: var(--radio-borde);
+    .triptych-frame {
+      height: 280px;
+      border-radius: 10px;
       overflow: hidden;
-      border: 1px solid var(--borde-suave);
-      box-shadow: var(--sombra-card);
-      background: var(--blanco);
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      background: #0D1C15;
+      transition: transform 0.3s ease;
     }
 
-    .mosaic-card img {
-      height: 250px;
-      object-fit: cover;
-      transition: var(--transicion);
-    }
-
-    .mosaic-card:hover img {
+    .triptych-frame:hover {
       transform: scale(1.02);
     }
 
-    .mosaic-info {
-      padding: 1.2rem;
+    /* SECCIÓN: DIRECCIÓN Y GESTIÓN HUMANA (ALEJANDRA FABRA) */
+    .leadership-section {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 3.5rem;
+      margin-bottom: 4.5rem;
+      box-shadow: var(--sombra-suave);
     }
 
-    .mosaic-info strong {
-      display: block;
-      color: var(--verde-bosque);
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .mosaic-info span {
-      color: #666;
-      font-size: 0.86rem;
-    }
-
-    /* SECCIÓN VIDEO */
-    .video-section-wrapper {
-      background-color: var(--verde-bosque);
-      color: var(--blanco);
-      padding: 5rem 0;
-      position: relative;
-    }
-
-    .video-grid {
+    .leadership-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 3.5rem;
       align-items: center;
     }
 
-    .video-text h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+    .leadership-info h3 {
+      font-size: 1.95rem;
+      color: var(--verde-bosque);
       line-height: 1.2;
+      margin-bottom: 0.9rem;
     }
 
-    .video-text p {
-      color: #D3E0D6;
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
+    .leadership-info p {
+      font-size: 1.02rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 1.3rem;
     }
 
-    .video-highlights {
-      list-style: none;
-      margin-bottom: 2rem;
+    .quote-box-leadership {
+      background: var(--fondo-suave);
+      border-left: 4px solid var(--verde-hoja);
+      padding: 1.1rem 1.3rem;
+      border-radius: 0 8px 8px 0;
     }
 
-    .video-highlights li {
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      color: #E2EAE3;
+    .quote-box-leadership p {
+      font-size: 0.94rem;
+      color: #222;
+      font-style: italic;
+      margin: 0;
+      line-height: 1.5;
     }
 
-    .video-highlights li::before {
-      content: '✔';
+    .quote-box-leadership span {
+      display: block;
+      font-size: 0.84rem;
       color: var(--terracota);
       font-weight: 700;
+      margin-top: 0.4rem;
     }
 
-    .video-player-container {
-      background: var(--negro-carbon);
+    .leadership-video-box {
       border-radius: 12px;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-      position: relative;
+      background: var(--negro-carbon);
+      border: 2px solid var(--borde);
+      box-shadow: var(--sombra-flotante);
     }
 
-    .video-player-container video {
-      width: 100%;
-      height: 100%;
-      max-height: 440px;
-      object-fit: cover;
-      outline: none;
+    .leadership-video-box video {
+      max-height: 400px;
     }
 
-    .video-caption-bar {
-      background-color: #141414;
-      padding: 0.85rem 1.2rem;
-      font-size: 0.85rem;
-      color: #BBB;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* ESTADÍSTICAS */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
+    /* REPRODUCTOR DE VIDEO RECORRIDO */
+    .video-section {
+      background: var(--fondo-suave);
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 3rem;
+      margin-bottom: 4.5rem;
+      box-shadow: var(--sombra-suave);
       text-align: center;
-      margin-top: 3.5rem;
     }
 
-    .stat-card {
+    .video-container-box {
+      max-width: 880px;
+      margin: 1.8rem auto 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--negro-carbon);
+      border: 2px solid var(--borde);
+      box-shadow: var(--sombra-flotante);
+    }
+
+    /* SECCIÓN DE CONTACTO Y ARTICULACIÓN */
+    .contact-section {
       background: var(--blanco);
-      padding: 2rem 1.5rem;
-      border-radius: var(--radio-borde);
-      border: 1px solid var(--borde-suave);
-      box-shadow: var(--sombra-card);
+      border: 1px solid var(--borde);
+      border-top: 5px solid var(--terracota);
+      border-radius: var(--radio);
+      padding: 3.5rem;
+      margin-bottom: 4.5rem;
+      box-shadow: var(--sombra-flotante);
     }
 
-    .stat-value {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--terracota);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--verde-bosque);
-      margin-bottom: 0.35rem;
-    }
-
-    .stat-desc {
-      font-size: 0.86rem;
-      color: #666;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: var(--negro-carbon);
-      color: #B4B8B4;
-      padding: 4.5rem 0 2rem;
-      border-top: 4px solid var(--verde-hoja);
-      font-size: 0.92rem;
-    }
-
-    .footer-grid {
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 3.5rem;
-      margin-bottom: 3.5rem;
     }
 
-    .footer-col h4 {
-      color: var(--blanco);
-      font-size: 1.15rem;
+    .contact-card-box {
+      background: var(--fondo-suave);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .contact-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
       margin-bottom: 1.2rem;
-      position: relative;
-      padding-bottom: 0.4rem;
     }
 
-    .footer-col h4::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 35px;
-      height: 2px;
-      background-color: var(--terracota);
+    .contact-item-row:last-child {
+      margin-bottom: 0;
     }
 
-    .footer-col p {
-      margin-bottom: 0.9rem;
-      line-height: 1.6;
+    .contact-icon-chip {
+      width: 40px;
+      height: 40px;
+      background: rgba(37, 98, 68, 0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-hoja);
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
     }
 
-    .footer-links {
-      list-style: none;
+    .contact-text-meta label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--terracota);
+      margin-bottom: 0.2rem;
     }
 
-    .footer-links li {
-      margin-bottom: 0.65rem;
+    .contact-text-meta a, 
+    .contact-text-meta span {
+      font-size: 1.05rem;
+      color: var(--verde-bosque);
+      font-weight: 700;
+      display: inline-block;
+      transition: color 0.2s ease;
     }
 
-    .footer-links a:hover {
-      color: var(--blanco);
-      padding-left: 4px;
+    .contact-text-meta a:hover {
+      color: var(--terracota);
     }
 
-    .footer-bottom {
-      border-top: 1px solid #333333;
-      padding-top: 2rem;
+    .contact-badge-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--verde-bosque);
+      color: var(--blanco) !important;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all 0.25s var(--curva);
+    }
+
+    .contact-badge-btn:hover {
+      background: var(--verde-hoja);
+      transform: translateY(-2px);
+    }
+
+    /* PIE INSTITUCIONAL */
+    footer {
+      background: var(--negro-carbon);
+      color: #AAA;
+      padding: 3.5rem 0 2.5rem;
+      border-top: 4px solid var(--verde-hoja);
+      font-size: 0.9rem;
       text-align: center;
-      font-size: 0.85rem;
-      color: #888888;
     }
 
-    @media (max-width: 960px) {
-      .hero-grid,
-      .story-layout,
-      .video-grid,
-      .footer-grid {
+    footer strong {
+      color: var(--blanco);
+      font-size: 1.05rem;
+    }
+
+    footer p {
+      margin-top: 0.4rem;
+    }
+
+    .footer-links-quick {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links-quick a {
+      color: #C2CBC4;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .footer-links-quick a:hover {
+      color: var(--terracota);
+    }
+
+    @media (max-width: 900px) {
+      .branch-hero-grid,
+      .dual-showcase,
+      .triptych-grid,
+      .leadership-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2.2rem;
       }
-
-      .hero h1 {
-        font-size: 2.3rem;
+      .triptych-frame {
+        height: 230px;
       }
-
-      nav ul {
+      .slider-card {
+        flex: 0 0 88%;
+      }
+      .branch-hero h2 {
+        font-size: 2.2rem;
+      }
+      .leadership-section,
+      .triptych-section,
+      .contact-section {
+        padding: 2.2rem 1.6rem;
+      }
+      .nav-direct-contact {
         display: none;
+      }
+      .timeline-display-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-metric {
+        border-left: none;
+        border-top: 2px solid rgba(149, 62, 40, 0.2);
+        padding-left: 0;
+        padding-top: 1rem;
+        width: 100%;
+        text-align: left;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BANNER -->
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <span>Medellín, Colombia · Comuna 4 (Aranjuez) · Morro de Moravia</span>
-      <span>Corporación ESAL fundada en febrero de 2016</span>
-    </div>
-  </div>
-
-  <!-- NAVEGACIÓN -->
+  <!-- ENCABEZADO Y LOGO REDIRECCIONABLE -->
   <header>
-    <div class="container nav-wrapper">
-      <div class="brand-group">
-        <a href="#inicio" class="brand-logo">JARUM</a>
-        <span class="brand-tagline">Jardineros Unidos de Moravia</span>
+    <div class="container nav-inner">
+      <a href="https://jarum.com.co/" target="_blank" rel="noopener noreferrer" class="brand-link" title="Ir al sitio oficial de JARUM">
+        <img src="assets/images/logo-jarum.png" alt="Logo Jarum" class="brand-logo-img" />
+        <div class="brand-text">
+          <h1>JARUM</h1>
+          <span>Jardineros Unidos de Moravia</span>
+        </div>
+      </a>
+      <div class="nav-direct-contact">
+        <a href="#contacto" class="btn-contact-top">Información de Contacto</a>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#lineas">Líneas de Acción</a></li>
-          <li><a href="#cronica">Memoria Territorial</a></li>
-          <li><a href="#recorrido">Recorrido Audiovisual</a></li>
-          <li><a href="#contacto" class="nav-cta">Contacto y Alianzas</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION CON SLIDE-01.JPG -->
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div class="hero-text-content">
-        <span class="hero-tag">Transformación Paisajística & Social</span>
-        <h1>Sembrando vida donde hubo basura</h1>
+  <!-- HERO EDITORIAL CON CIFRAS RÁPIDAS -->
+  <section class="branch-hero">
+    <div class="container branch-hero-grid">
+      <div>
+        <span class="pill-badge">
+          <span class="pulse-dot"></span>
+          Ecosistema Comunitario · Morro de Moravia
+        </span>
+        <h2>Sembrando vida, <span>regenerando</span> territorio.</h2>
         <p>
-          En el corazón de Medellín, JARUM convirtió el antiguo botadero a cielo abierto en un pulmón comunitario vibrante[cite: 3]. No solo creamos jardines: sembramos memoria, cultura socio-ambiental y futuro junto a nuestra comunidad.
+          Este espacio profundiza en las acciones cotidianas de JARUM: la germinación de plantas nativas, la pedagogía con niños y jóvenes, y el cuidado incansable de los senderos que transformaron el antiguo relleno en memoria viva.
         </p>
-        <div class="hero-buttons">
-          <a href="#lineas" class="btn btn-primary">Nuestras Líneas de Acción</a>
-          <a href="#cronica" class="btn btn-secondary">Leer la Historia</a>
+        <div class="hero-stats-quick">
+          <div class="stat-chip">
+            <strong>2016</strong>
+            <span>Nacimiento de la corporación</span>
+          </div>
+          <div class="stat-chip">
+            <strong>+3 000</strong>
+            <span>Visitantes anuales en senderos</span>
+          </div>
+          <div class="stat-chip">
+            <strong>4</strong>
+            <span>Frentes socio-ambientales</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-media-wrapper">
-        <figure class="hero-media-card">
-          <!-- RUTA EXACTA: assets/images/cronica/slide-01.jpg -->
-          <img src="assets/images/cronica/slide-01.jpg" alt="Panorámica del Morro de Moravia con jardines escalonados y senderos" />
-          <figcaption class="hero-media-caption">
-            <strong>El Morro de Moravia:</strong> Senderos de fito y biorremediación sobre la ladera comunitaria[cite: 3].
-          </figcaption>
-        </figure>
+      <div style="background: var(--verde-bosque); color: #FFF; padding: 2.2rem; border-radius: var(--radio); border-left: 5px solid var(--terracota); box-shadow: var(--sombra-suave);">
+        <span style="font-size: 0.78rem; text-transform: uppercase; color: #E8AF9E; font-weight: 700; letter-spacing: 1px;">Propósito Botánico</span>
+        <h4 style="font-size: 1.35rem; margin: 0.6rem 0 0.8rem; line-height: 1.25;">De residuo urbano a sustrato vivo</h4>
+        <p style="font-size: 0.95rem; color: #D3E0D6; line-height: 1.6;">
+          La vegetación en Moravia no es solo ornamento: es tecnología viva de fitorremediación que absorbe metales, estabiliza pendientes y devuelve la dignidad al barrio.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- LÍNEAS DE ACCIÓN -->
-  <section class="section container" id="lineas">
-    <div class="section-header">
-      <span class="section-category">Servicios & Impacto Territorial</span>
-      <h2>Nuestras 4 Líneas de Acción</h2>
-      <p>
-        A través de la innovación, saberes populares y tecnologías de biorremediación, impactamos el territorio mediante cuatro ejes inquebrantables:
+  <!-- LÍNEA DE TIEMPO INTERACTIVA POR ESTACIONES -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <h3>Hitos de la Transformación Territorial</h3>
+        <p>Haz clic en cada estación para descubrir cómo se gestó la recuperación ambiental:</p>
+      </div>
+
+      <div class="timeline-tabs">
+        <button class="timeline-btn active" data-step="1">1977 – El Relleno</button>
+        <button class="timeline-btn" data-step="2">1983 – El Arraigo</button>
+        <button class="timeline-btn" data-step="3">2001 – La Proyección</button>
+        <button class="timeline-btn" data-step="4">2016 – Nace JARUM</button>
+      </div>
+
+      <div class="timeline-display-card" id="timeline-card">
+        <div class="timeline-info">
+          <h4 id="tl-title">1977: Oficialización del Relleno Sanitario</h4>
+          <p id="tl-desc">
+            La administración municipal oficializa el Morro como vertedero oficial de Medellín. Familias desplazadas por el conflicto se asentaron en los bordes, encontrando en el reciclaje su sustento de vida.
+          </p>
+        </div>
+        <div class="timeline-metric">
+          <div class="num" id="tl-num">15 000</div>
+          <div class="label" id="tl-label">Pobladores iniciales</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- TABLERO BOTÁNICO FITORREMEDIADOR -->
+    <section class="botanical-section">
+      <div class="section-title-wrap">
+        <h3>Especies que Sanaron la Montaña</h3>
+        <p>Plantas seleccionadas por los jardineros para absorber contaminantes y retener laderas:</p>
+      </div>
+
+      <div class="botanical-cards-grid">
+        <div class="botanical-card">
+          <span class="botanical-tag">Filtro Natural</span>
+          <h4>Suculentas</h4>
+          <p>Almacenan agua en tejidos gruesos y prosperan en terrenos con escasez de nutrientes, creando alfombras protectoras contra la erosión superficial.</p>
+        </div>
+
+        <div class="botanical-card" style="border-top-color: var(--terracota);">
+          <span class="botanical-tag">Barrera Viva</span>
+          <h4>Durantas</h4>
+          <p>Arbustos densos de raíz pivotante empleados para delimitar senderos peatonales, capturar partículas de polvo y amortiguar pendientes pronunciadas.</p>
+        </div>
+
+        <div class="botanical-card">
+          <span class="botanical-tag">Bioacumuladora</span>
+          <h4>Cintillas</h4>
+          <p>Especies de rápido rebrote subterráneo con capacidad de retener elementos pesados presentes en las capas profundas del antiguo relleno.</p>
+        </div>
+
+        <div class="botanical-card" style="border-top-color: var(--terracota);">
+          <span class="botanical-tag">Sombra y Cobertura</span>
+          <h4>Barquillos</h4>
+          <p>Follaje amplio que retiene la humedad del rocío mañanero y genera microclimas propicios para la proliferación de insectos polinizadores.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. BLOQUE DUAL: SANCOCHO (1 FOTO) + REFORESTACIÓN (1 FOTO) -->
+    <div class="dual-showcase">
+      
+      <!-- FOTO 1: Sancocho Comunitario -->
+      <article class="showcase-card">
+        <div class="showcase-img">
+          <img src="assets/images/cronica/sancocho-comunitario.jpeg" alt="Sancocho comunitario después de jornada de reciclaje" />
+        </div>
+        <div class="showcase-info">
+          <div>
+            <h4>Sancocho comunitario después de jornada de reciclaje</h4>
+            <p>El trabajo ambiental en Moravia siempre es colectivo. Alrededor del fogón comunitario se celebran las jornadas de limpieza y se fortalecen los lazos vecinales.</p>
+          </div>
+          <span class="credit-badge">Foto: cortesía Jarum</span>
+        </div>
+      </article>
+
+      <!-- FOTO 2: Reforestación con Plantas Nativas (1 FOTO) -->
+      <article class="showcase-card">
+        <div class="showcase-img">
+          <img src="assets/images/vivero/reforestacion.jpeg" alt="Reforestación con plantas nativas en Moravia" />
+        </div>
+        <div class="showcase-info">
+          <div>
+            <h4>Reforestación con Plantas Nativas</h4>
+            <p>Jarum tiene la meta de reforestar Antioquia con plantas nativas de la ciudad, multiplicando en su vivero esquejes y semillas aclimatadas al entorno urbano.</p>
+          </div>
+          <span class="credit-badge">Foto: cortesía Jarum</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- 2. GALERÍA MÓVIL: SEMILLERO AMBIENTAL (3 FOTOS) -->
+    <section class="slider-section">
+      <div class="slider-header">
+        <div>
+          <h3 style="font-size: 1.8rem; color: var(--verde-bosque);">Semillero de Conciencia Ambiental</h3>
+          <p style="color: #555; margin-top: 0.3rem;">Actividades del semillero de conciencia ambiental para niños y jóvenes.</p>
+        </div>
+        <span class="credit-badge">Fotos: Brunella Angobaldo Pacora</span>
+      </div>
+
+      <div class="slider-track">
+        <!-- FOTO 3 -->
+        <div class="slider-card">
+          <div class="slider-card-img">
+            <img src="assets/images/cronica/semillero-ambiental-01.jpeg" alt="Actividades del semillero ambiental 1" />
+          </div>
+          <div class="slider-card-caption">
+            Reconocimiento de plántulas y talleres de germinación guiados con niños y adolescentes del sector.
+          </div>
+        </div>
+
+        <!-- FOTO 4 -->
+        <div class="slider-card">
+          <div class="slider-card-img">
+            <img src="assets/images/cronica/semillero-ambiental-02.jpeg" alt="Actividades del semillero ambiental 2" />
+          </div>
+          <div class="slider-card-caption">
+            Prácticas de siembra comunitaria para transmitir el respeto por la biodiversidad y la tierra.
+          </div>
+        </div>
+
+        <!-- FOTO 5 -->
+        <div class="slider-card">
+          <div class="slider-card-img">
+            <img src="assets/images/cronica/semillero-ambiental-03.jpeg" alt="Actividades del semillero ambiental 3" />
+          </div>
+          <div class="slider-card-caption">
+            Integración de la escuela con el barrio a través del compostaje y huertas pedagógicas.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TRÍPTICO DE FOTOS: DON WILLIAM GÓMEZ (3 FOTOS JUNTAS) -->
+    <section class="triptych-section">
+      <div class="triptych-header">
+        <h3>Memoria y Cuidado de la Tierra</h3>
+        <p>
+          Don William Gómez ve a Jarum como una segunda oportunidad para que las zonas verdes de Moravia puedan crecer junto a su gente.
+        </p>
+        <div class="quote-callout">
+          "Uno no siembra para ver crecer una planta; siembra para que el barrio crezca."
+        </div>
+        <span>Foto: cortesía Jarum</span>
+      </div>
+
+      <div class="triptych-grid">
+        <!-- FOTO 6 -->
+        <div class="triptych-frame">
+          <img src="assets/images/cronica/don-william-01.jpeg" alt="Don William Gómez en el vivero de Jarum 1" />
+        </div>
+        <!-- FOTO 7 -->
+        <div class="triptych-frame">
+          <img src="assets/images/cronica/don-william-02.jpeg" alt="Don William Gómez en el vivero de Jarum 2" />
+        </div>
+        <!-- FOTO 8 -->
+        <div class="triptych-frame">
+          <img src="assets/images/cronica/don-william-03.jpeg" alt="Don William Gómez en el vivero de Jarum 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECCIÓN: DIRECCIÓN Y GESTIÓN HUMANA (VIDEO ALEJANDRA FABRA) -->
+    <section class="leadership-section">
+      <div class="leadership-grid">
+        <div class="leadership-info">
+          <span class="pill-badge" style="background: rgba(149, 62, 40, 0.1); color: var(--terracota); border-color: rgba(149, 62, 40, 0.25);">
+            Liderazgo & Relevo Generacional
+          </span>
+          <h3>"JARUM es resiliencia y familia"</h3>
+          <p>
+            Alejandra Fabra inició su camino realizando sus prácticas universitarias en Moravia, continuó como voluntaria y hoy lidera la dirección de la corporación. Su testimonio refleja el reto de construir sostenibilidad económica a través de la educación ambiental, el paisajismo y la creación de empleo digno para el territorio.
+          </p>
+          <div class="quote-box-leadership">
+            <p>
+              "Los socios fundadores y los nuevos socios hemos creado lazos que hacen que todo esto tenga sentido."
+            </p>
+            <span>— Alejandra Fabra, Directora de JARUM</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="leadership-video-box">
+            <video controls playsinline preload="metadata">
+              <source src="assets/videos/video-alejandra.mp4" type="video/mp4" />
+              <source src="assets/videos/Video Alejandra Fabra Jarum (1).mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. REPRODUCTOR DE VIDEO RECORRIDO -->
+    <section class="video-section">
+      <h3 style="font-size: 1.8rem; color: var(--verde-bosque);">Recorrido Audiovisual</h3>
+      <p style="color: #666; margin-top: 0.3rem;">Senderos, memoria viva y trabajo de campo en el Morro de Moravia.</p>
+      
+      <div class="video-container-box">
+        <video controls playsinline preload="metadata">
+          <source src="assets/videos/video-01.mp4" type="video/mp4" />
+          Tu navegador no soporta reproducción de video.
+        </video>
+      </div>
+    </section>
+
+    <!-- 6. SECCIÓN DE CONTACTO Y ARTICULACIÓN TERRITORIAL -->
+    <section class="contact-section" id="contacto">
+      <div class="section-title-wrap" style="text-align: left; margin-bottom: 2rem;">
+        <span style="font-size: 0.82rem; font-weight: 700; color: var(--terracota); text-transform: uppercase; letter-spacing: 1.2px; display: block; margin-bottom: 0.3rem;">Canales Oficiales</span>
+        <h3 style="font-size: 2.1rem; color: var(--verde-bosque);">Información de Contacto</h3>
+        <p style="color: #555;">Comunícate con nuestro equipo para alianzas institucionales, recorridos ecoturísticos o adquisición de material vegetal.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Bloque Institucional y Vivero -->
+        <div class="contact-card-box">
+          <div>
+            <h4 style="font-size: 1.25rem; color: var(--verde-bosque); margin-bottom: 1.4rem;">Atención y Líneas Directas</h4>
+            
+            <div class="contact-item-row">
+              <div class="contact-icon-chip">🏢</div>
+              <div class="contact-text-meta">
+                <label>Corporación JARUM</label>
+                <a href="tel:+573059216586">+57 305 9216586</a>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon-chip">🌱</div>
+              <div class="contact-text-meta">
+                <label>Vivero Comunitario</label>
+                <a href="tel:+573001043951">+57 300 1043951</a>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon-chip">✉️</div>
+              <div class="contact-text-meta">
+                <label>Correo de Contacto / PQRS</label>
+                <a href="mailto:pqrs@jarum.com.co">pqrs@jarum.com.co</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="https://wa.me/573059216586" target="_blank" rel="noopener noreferrer" class="contact-badge-btn" style="background: var(--verde-hoja);">
+              WhatsApp Corporación
+            </a>
+            <a href="https://wa.me/573001043951" target="_blank" rel="noopener noreferrer" class="contact-badge-btn" style="background: var(--terracota);">
+              WhatsApp Vivero
+            </a>
+          </div>
+        </div>
+
+        <!-- Bloque Ubicación Territorial -->
+        <div class="contact-card-box">
+          <div>
+            <h4 style="font-size: 1.25rem; color: var(--verde-bosque); margin-bottom: 1.4rem;">Sede Territorial</h4>
+            
+            <div class="contact-item-row">
+              <div class="contact-icon-chip">📍</div>
+              <div class="contact-text-meta">
+                <label>Dirección</label>
+                <span>Cll 83 H 58 E 24 Moravia</span>
+                <p style="font-size: 0.86rem; color: #666; margin-top: 0.3rem;">Comuna 4 (Aranjuez) · Medellín, Antioquia, Colombia</p>
+              </div>
+            </div>
+
+            <div class="contact-item-row" style="margin-top: 1.5rem;">
+              <div class="contact-icon-chip">🌐</div>
+              <div class="contact-text-meta">
+                <label>Portal Web Oficial</label>
+                <a href="https://jarum.com.co/" target="_blank" rel="noopener noreferrer">jarum.com.co</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Cll+83+H+58+E+24+Moravia+Medellin" target="_blank" rel="noopener noreferrer" class="contact-badge-btn" style="width: 100%;">
+            Abrir Ubicación en Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE INSTITUCIONAL -->
+  <footer>
+    <div class="container">
+      <p><strong>JARUM · Jardineros Unidos de Moravia</strong></p>
+      <p>Paisajismo · Producción Vegetal · Ecoturismo · Educación Socio-Ambiental</p>
+      
+      <div class="footer-links-quick">
+        <a href="tel:+573059216586">Corp: +57 305 9216586</a>
+        <a href="tel:+573001043951">Vivero: +57 300 1043951</a>
+        <a href="mailto:pqrs@jarum.com.co">pqrs@jarum.com.co</a>
+        <a href="https://jarum.com.co/" target="_blank" rel="noopener noreferrer">jarum.com.co</a>
+      </div>
+
+      <p style="margin-top: 0.8rem; font-size: 0.82rem; color: #777;">
+        Cll 83 H 58 E 24 Moravia · Comuna 4 · Medellín, Colombia
       </p>
     </div>
-
-    <div class="grid-action-cards">
-      <article class="action-card">
-        <span class="action-number">Eje 01</span>
-        <h3>Paisajismo</h3>
-        <p>
-          Creación y mantenimiento de entornos verdes que embellecen y revitalizan esquinas urbanas, taludes y espacios públicos con especies fitorremediadoras[cite: 3].
-        </p>
-      </article>
-
-      <article class="action-card">
-        <span class="action-number">Eje 02</span>
-        <h3>Producción Vegetal</h3>
-        <p>
-          Cultivamos la vida desde la raíz. Propagamos suculentas, plantas ornamentales y medicinales adaptadas a suelos desafiantes en nuestro vivero comunitario[cite: 3].
-        </p>
-      </article>
-
-      <article class="action-card">
-        <span class="action-number">Eje 03</span>
-        <h3>Ecoturismo</h3>
-        <p>
-          Recorridos pedagógicos sostenibles a través de los senderos de memoria, conectando visitantes locales e internacionales con la resiliencia del barrio[cite: 3].
-        </p>
-      </article>
-
-      <article class="action-card">
-        <span class="action-number">Eje 04</span>
-        <h3>Educación Ambiental</h3>
-        <p>
-          Fomentamos cultura ecológica mediante el proyecto Compost Escuela, huertas escolares y articulación directa con instituciones educativas del territorio[cite: 3].
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- CRÓNICA (SLIDE-02.JPG Y SLIDE-03.JPG) -->
-  <section class="section section-alt" id="cronica">
-    <div class="container story-layout">
-      <div class="story-content">
-        <span class="section-category">Crónica Territorial</span>
-        <h2>Los jardineros que sembraron vida donde hubo basura[cite: 3]</h2>
-        <p>
-          Subir al Morro de Moravia es caminar sobre una contradicción histórica: bajo la suela hay décadas de desechos de Medellín; a los lados, barquillos, durantas y cintillas se mecen con la brisa del Valle de Aburrá[cite: 3].
-        </p>
-        <p>
-          Desde la clausura del botadero oficial en 1983, las familias campesinas y los líderes decidieron transformar la herida en un jardín vivo[cite: 3]. En febrero de 2016 formalizaron la corporación JARUM porque sabían que un jardín recién nacido sin jardineros rápidamente se vuelve monte[cite: 3].
-        </p>
-
-        <div class="story-quote">
-          <blockquote>
-            "Uno no siembra para ver crecer una planta; siembra para que el barrio crezca."[cite: 3]
-          </blockquote>
-          <cite>— Don William Gómez, Viverista y Socio Fundador de JARUM[cite: 3]</cite>
-        </div>
-
-        <p>
-          Hoy, muchos de los jardineros están certificados y trabajan de la mano con el Jardín Botánico de Medellín, demostrando que en Moravia la basura nunca fue el final, sino el abono[cite: 3].
-        </p>
-      </div>
-
-      <div class="story-mosaic">
-        <!-- RUTA EXACTA: assets/images/cronica/slide-02.jpg -->
-        <div class="mosaic-card">
-          <img src="assets/images/cronica/slide-02.jpg" alt="Vivero comunitario de JARUM con cultivo de suculentas y plantas ornamentales" />
-          <div class="mosaic-info">
-            <strong>Vivero Comunitario JARUM</strong>
-            <span>Propagación de plántulas y sustratos orgánicos para la fitorremediación del morro.</span>
-          </div>
-        </div>
-
-        <!-- RUTA EXACTA: assets/images/vivero/slide-03.jpg -->
-        <div class="mosaic-card">
-          <img src="assets/images/vivero/slide-03.jpg" alt="Jardinero comunitario de Moravia sembrando en las parcelas agroecológicas" />
-          <div class="mosaic-info">
-            <strong>Manos que Siembran Territorio</strong>
-            <span>Cuidado y siembra agroecológica realizada por líderes y fundadores del proceso ambiental.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MÉTRICAS -->
-    <div class="container stats-grid">
-      <div class="stat-card">
-        <div class="stat-value">2016</div>
-        <div class="stat-title">Nacimiento de JARUM</div>
-        <div class="stat-desc">Constitución legal como corporación ESAL sin ánimo de lucro[cite: 3].</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">+3 000</div>
-        <div class="stat-title">Visitantes al Año</div>
-        <div class="stat-desc">Turistas y colectivos en senderos de memoria y ecoturismo[cite: 3].</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">40k+</div>
-        <div class="stat-title">Habitantes en Moravia</div>
-        <div class="stat-desc">Comunidad beneficiada por procesos de reverdecimiento barrial[cite: 3].</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">100%</div>
-        <div class="stat-title">Raíz Comunitaria</div>
-        <div class="stat-desc">Proyectos ejecutados por y para los propios habitantes del morro.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RECORRIDO AUDIOVISUAL (VIDEO-01.MOV) -->
-  <section class="video-section-wrapper" id="recorrido">
-    <div class="container video-grid">
-      <div class="video-text">
-        <span class="hero-tag" style="background: rgba(149, 62, 40, 0.4); border-color: var(--terracota);">Registro Audiovisual</span>
-        <h2>Vive la experiencia del Morro de Moravia</h2>
-        <p>
-          A través de este registro en video puedes observar el contraste del territorio: los senderos que conducen a la cima, las especies cultivadas por los jardineros y la vista panorámica hacia el Parque Norte y el Jardín Botánico[cite: 3].
-        </p>
-        <ul class="video-highlights">
-          <li>Senderos de memoria intervenidos con durantas y cintillas[cite: 3].</li>
-          <li>Trabajo diario de abono y cuidado en el vivero comunal[cite: 3].</li>
-          <li>Testimonios vivos de transformación territorial y resiliencia.</li>
-        </ul>
-        <a href="#contacto" class="btn btn-primary">Agendar Recorrido Guiado</a>
-      </div>
-
-      <!-- REPRODUCTOR CON RUTA: assets/videos/video-01.mov -->
-      <div class="video-player-container">
-        <video controls playsinline preload="metadata" poster="assets/images/cronica/slide-01.jpg">
-          <source src="assets/videos/video-01.mov" type="video/quicktime" />
-          <source src="assets/videos/video-01.mp4" type="video/mp4" />
-          Tu navegador no soporta la reproducción directa de este archivo de video.
-        </video>
-        <div class="video-caption-bar">
-          <span>Registro de Campo: Senderos y Vivero JARUM</span>
-          <span>Moravia, Medellín</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contacto">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4 style="color: #FFFFFF;">JARUM</h4>
-          <p>
-            Corporación Jardineros Unidos de Moravia (ESAL)[cite: 3]. Transformando el antiguo relleno sanitario en un referente internacional de fitorremediación y dignidad barrial[cite: 3].
-          </p>
-          <p style="color: var(--terracota); font-weight: 700;">
-            "La basura no es el final de la historia. Es el abono."[cite: 3]
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Navegación Rápida</h4>
-          <ul class="footer-links">
-            <li><a href="#inicio">Inicio y Visión</a></li>
-            <li><a href="#lineas">4 Líneas de Acción</a></li>
-            <li><a href="#cronica">Memoria de Don William[cite: 3]</a></li>
-            <li><a href="#recorrido">Recorrido Audiovisual</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Ubicación & Alianzas</h4>
-          <p>Morro de Moravia · Comuna 4 (Aranjuez)</p>
-          <p>Medellín, Antioquia, Colombia</p>
-          <p>Articulación pedagógica: I.E. El Bosque · Jardín Botánico de Medellín[cite: 3]</p>
-          <p style="margin-top: 1rem;">
-            <a href="mailto:contacto@jarum.org" style="color: #FFF; font-weight: 700; text-decoration: underline;">Contactar con la Corporación</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 JARUM · Corporación Jardineros Unidos de Moravia. Todos los derechos reservados.</p>
-      </div>
-    </div>
   </footer>
+
+  <!-- SCRIPT INTERACTIVO: LÍNEA DE TIEMPO DINÁMICA -->
+  <script>
+    const timelineData = {
+      1: {
+        title: "1977: Oficialización del Vertedero",
+        desc: "La Alcaldía formaliza el Morro como relleno sanitario de Medellín. Familias desplazadas por el conflicto se asentaron en los bordes, encontrando en el reciclaje su sustento de vida.",
+        num: "15 000",
+        label: "Habitantes pioneros"
+      },
+      2: {
+        title: "1983: Cierre del Botadero y Resistencia",
+        desc: "Se inaugura el relleno de Curva de Rodas y se clausura el ingreso de basura. Pese a las dificultades, los habitantes deciden quedarse y levantar un barrio formal sobre el suelo desechado.",
+        num: "100%",
+        label: "Permanencia comunitaria"
+      },
+      3: {
+        title: "2001: Planeación Integral y Biorremediación",
+        desc: "Líderes barriales consolidan su visión en el Plan de Intervención Integral. Arrancan las parcelas de fitorremediación y el programa 'Medellín florece para la vida'.",
+        num: "40 000+",
+        label: "Población en consolidación"
+      },
+      4: {
+        title: "2016: Fundación de JARUM",
+        desc: "Nace formalmente Jardineros Unidos de Moravia como ESAL para cuidar el jardín naciente, articularse con colegios, formar guías turísticos y producir material vegetal.",
+        num: "+3 000",
+        label: "Turistas anuales educados"
+      }
+    };
+
+    const buttons = document.querySelectorAll('.timeline-btn');
+    const titleEl = document.getElementById('tl-title');
+    const descEl = document.getElementById('tl-desc');
+    const numEl = document.getElementById('tl-num');
+    const labelEl = document.getElementById('tl-label');
+    const cardEl = document.getElementById('timeline-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const step = btn.getAttribute('data-step');
+        const data = timelineData[step];
+
+        cardEl.style.opacity = '0.3';
+        setTimeout(() => {
+          titleEl.textContent = data.title;
+          descEl.textContent = data.desc;
+          numEl.textContent = data.num;
+          labelEl.textContent = data.label;
+          cardEl.style.opacity = '1';
+        }, 150);
+      });
+    });
+  </script>
 
 </body>
 </html>
